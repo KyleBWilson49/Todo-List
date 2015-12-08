@@ -1,13 +1,18 @@
 var React = require('react');
 var TodoStore = require('../stores/todo_store.js');
+var TodoDetailView = require('./todo_detail_view.jsx');
 
 var TodoListItem = React.createClass({
-  handleDestroy: function() {
-    TodoStore.destroy(this.props.item.id);
+  getInitialState: function () {
+    return { selected: false };
   },
 
   handleDone: function() {
     TodoStore.toggleDone(this.props.item.id);
+  },
+
+  handleReveal: function () {
+    this.setState({ selected: !this.state.selected });
   },
 
   render: function() {
@@ -26,15 +31,11 @@ var TodoListItem = React.createClass({
     return (
       <div>
         <div>
-          {this.props.item.title}
-          <button onClick={this.handleDestroy}>
-            Delete
-          </button>
-        </div>
-        <div>
-          {this.props.item.body}
+          <div onClick={this.handleReveal}>{this.props.item.title}</div>
           {doneButton}
         </div>
+        { this.state.selected ? <TodoDetailView item={this.props.item}/> : "" }
+        <br/>
       </div>
     );
   }
