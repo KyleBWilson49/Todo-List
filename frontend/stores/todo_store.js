@@ -1,14 +1,14 @@
 var _todos = [];
 var _callbacks = [];
 
-var TodoStore = window.TodoStore = {
+var TodoStore = {
   changed: function () {
     _callbacks.forEach(function (cb) {
       cb();
     });
   },
 
-  addChangedHandeler: function (cb) {
+  addChangedHandler: function (cb) {
     _callbacks.push(cb);
   },
 
