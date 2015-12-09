@@ -28,14 +28,21 @@ var TodoList = React.createClass({
   render: function() {
     var listItems = this.state.items.map(function(item, idx) {
       return (
-        <TodoListItem key={idx} item={item}/>
+        <TodoListItem key={item.id} item={item}/>
       );
     });
     return (
       <div>
-        {listItems}
-        <br/>
-        <TodoForm/>
+        <div className="row">
+          <div className="col-xs-4">
+            {listItems}
+            <br/>
+            <TodoForm/>
+          </div>
+          <div className="col-xs-8">
+            
+          </div>
+        </div>
       </div>
     );
   }

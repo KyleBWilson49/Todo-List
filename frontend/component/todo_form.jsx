@@ -29,12 +29,14 @@ var TodoForm = React.createClass({
   render: function () {
     return (
       <form onSubmit={this.handleSubmit}>
+
         <input type='text'
                name='title'
                onChange={this.handleInput}
                value={this.state.title}
                placeholder="Title">
         </input>
+
 
         <br/>
 
@@ -43,6 +45,7 @@ var TodoForm = React.createClass({
                   value={this.state.body}
                   placeholder="description">
         </textarea>
+
 
         <br/>
 

@@ -1,3 +1,5 @@
+var StepStore = require('./step_store.js');
+
 var _todos = [];
 var _callbacks = [];
 
@@ -54,6 +56,7 @@ var TodoStore = {
       success: function () {
         _todos.splice(idx, 1);
         TodoStore.changed();
+        StepStore.remove(id);
       }
     });
   },

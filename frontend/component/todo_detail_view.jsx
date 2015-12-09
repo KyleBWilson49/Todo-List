@@ -1,5 +1,6 @@
 var React = require('react');
 var TodoStore = require('../stores/todo_store.js');
+var Steps = require('./steps.jsx');
 
 var TodoDetailView = React.createClass({
   handleDestroy: function() {
@@ -13,6 +14,8 @@ var TodoDetailView = React.createClass({
         <button onClick={this.handleDestroy}>
           Delete
         </button>
+
+        <Steps todoId={this.props.item.id}/>
       </div>
     );
   }
